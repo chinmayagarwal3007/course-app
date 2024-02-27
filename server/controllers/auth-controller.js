@@ -1,6 +1,5 @@
-// testing something
-
-const User = require('../models/user-model')
+const User = require("../models/user-model");
+const bcrypt = require("bcryptjs");
 
 // *--------------------------------
 
@@ -9,13 +8,12 @@ const User = require('../models/user-model')
 // *--------------------------------
 
 const home = async (req, res) => {
-    try {
-        res.status(200).send("Hello from router!!");
-    } catch (error) {
-        console.log(error);
-    }
-}
-
+  try {
+    res.status(200).send("Hello from router!!");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // *--------------------------------
 
@@ -31,23 +29,24 @@ const home = async (req, res) => {
 // 6. Respond with Registration successfull
 
 const register = async (req, res) => {
-    try {
-        console.log(req.body);
-        const {username, email, phone, password} = req.body;
+  try {
+    const { username, email, phone, password } = req.body;
 
-        const userExist = await User.findOne({email});
+    const userExist = await User.findOne({ email });
 
-        if(userExist){
-            return res.status(400).json({msg:"user already exists"});
-        }
-
-        const userCreated = await User.create({username, email, phone, password});
-        res.send(userCreated);
-
-    } catch (error) {
-        console.log(error);
+    if (userExist) {
+      return res.status(400).json({ msg: "user already exists" });
     }
-}
+    const userCreated = await User.create({ username, email, phone, password });
+    res.status(201).json({
+      msg:"Registration Successfull",
+      token: await userCreated.generateToken(),
+      userId: userCreated._id.toString(),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // *--------------------------------
 
@@ -55,12 +54,30 @@ const register = async (req, res) => {
 
 // *--------------------------------
 
-const login = async(req, res) => {
-    try {
-        res.status(200).json({ message: "Hello from Login page!!"});
-    } catch (error) {
-        console.log(error);
+const login = async (req, res) => {
+  try {
+    const {email, password} = req.body;
+    const userExist = await User.findOne({email});
+    if(!userExist){
+        return res.status(401).json({msg: "Invalid Credentials"});
     }
-}
 
-module.exports = {home, register, login};
+    const user = await userExist.checkPassword(password);
+
+    if(user){
+        res.status(200).json({
+            msg:"Login Successfull",
+            token: await userExist.generateToken(),
+            userId: userExist._id.toString(),
+          }); 
+    }
+    else{
+        return res.status(401).json({msg: "Invalid Credentials"});
+    }
+
+  } catch (error) {
+    res.status(500).json("Lgin failed");
+  }
+};
+
+module.exports = { home, register, login };
