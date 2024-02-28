@@ -1,5 +1,4 @@
 const User = require("../models/user-model");
-const bcrypt = require("bcryptjs");
 
 // *--------------------------------
 
@@ -80,4 +79,6 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { home, register, login };
+
+
+module.exports = {home, register, login};

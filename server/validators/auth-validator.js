@@ -22,7 +22,18 @@ const signupSchema = z.object({
     .string({required_error:"Password is required"})
     .min(6, {message: "Pasword must be atleast of 6 chars"})
     .max(1024, {message: "Password must be not be more than 1024 chars"}),
-
 });
 
-module.exports = signupSchema;
+const LoginSchema = z.object({
+    email: z
+    .string({required_error:"Email is required"})
+    .trim(),
+
+    password: z
+    .string({required_error:"Password is required"})
+});
+
+
+
+
+module.exports = {signupSchema, LoginSchema};
