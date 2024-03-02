@@ -5,6 +5,7 @@ import {Contact} from "./pages/Contact"
 import { Service } from "./pages/Service";
 import {Login} from "./pages/Login"
 import {Register} from "./pages/Register"
+import { Error } from "./pages/Error";
 import Navbar from "./components/Navbar";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/service" element={<Service />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Error />}/>
       </Routes>  
     </BrowserRouter>
   
