@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links{
+    display: flex;
+    gap: 20px;
+}
+
+.logo{
+    margin-right: 50px;
+}

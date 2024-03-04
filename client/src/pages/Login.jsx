@@ -10,7 +10,7 @@ export const Login = () => {
 
   const navigate = useNavigate();
 
-  const storeTokenInLs = useAuth();
+  const {storeTokenInLs} = useAuth();
 
   const handleChange = (e) => {
     let name = e.target.name;
