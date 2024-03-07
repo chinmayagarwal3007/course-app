@@ -37,19 +37,20 @@ export const Register = () => {
         body: JSON.stringify(user),
       });
 
+      const res_data = await response.json();
+
       if(response.ok){
-        const res_data = await response.json();
         storeTokenInLs(res_data.token);
         alert("registration Successfull");
         navigate("/");
       }
-
-      console.log(response);
+      else{
+        alert(res_data.extraDetails || res_data.msg);
+      }
     } catch (error) {
       console.log("Register err: ", error);
     }
   };
-
   return (
     <>
     <section>

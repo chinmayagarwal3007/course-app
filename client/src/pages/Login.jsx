@@ -33,17 +33,19 @@ export const Login = () => {
         body: JSON.stringify(user),
       });
 
+      const res_data = await response.json();
+
       if (response.ok) {
         alert("Login successfull");
 
-        const res_data = await response.json();
         storeTokenInLs(res_data.token);
 
         setUser({ email: "", password: "" });
 
         navigate("/");
       } else {
-        alert("Invalid credential");
+        alert(res_data.extraDetails || res_data.msg);
+        setUser({ email: "", password: "" });
       }
     } catch (error) {
       console.log(`Login err: ${error}`);
