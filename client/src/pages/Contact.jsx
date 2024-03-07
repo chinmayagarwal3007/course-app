@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import {toast} from "react-toastify"
 
 export const Contact = () => {
   const [contact, setContact] = useState({
@@ -43,8 +44,10 @@ export const Contact = () => {
         body: JSON.stringify(contact),
       });
 
+      const res_data = await response.json();
+
       if (response.ok) {
-        alert("Message sent Successfully!!");
+        toast.success("Message sent Successfully!!");
 
         setContact({
           username: "",
@@ -52,8 +55,10 @@ export const Contact = () => {
           message: "",
         });
       }
+      else{
+        toast.error(res_data.extraDetails || "Message failed!!");
+      }
     } catch (error) {
-      alert("Message failed!!");
       console.log("error from contact : ", error);
     }
   };
@@ -83,7 +88,6 @@ export const Contact = () => {
                   autoComplete="off"
                   value={contact.username}
                   onChange={handleInput}
-                  required
                 />
               </div>
 
@@ -97,7 +101,6 @@ export const Contact = () => {
                   autoComplete="off"
                   value={contact.email}
                   onChange={handleInput}
-                  required
                 />
               </div>
 
@@ -109,7 +112,6 @@ export const Contact = () => {
                   autoComplete="off"
                   value={contact.message}
                   onChange={handleInput}
-                  required
                   cols="30"
                   rows="6"
                 ></textarea>

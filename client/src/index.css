@@ -514,3 +514,7 @@ a.active {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
+.toastBody {
+  font-size: 1.7rem !important;
+}
