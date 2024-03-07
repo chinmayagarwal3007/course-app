@@ -13,8 +13,8 @@ const Navbar = () => {
       <div className="links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/service">Services</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         {isLoggedIn ? (
           <NavLink to="/logout">Logout</NavLink>
         ) : (
