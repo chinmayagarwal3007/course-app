@@ -56,6 +56,7 @@ export const Contact = () => {
         });
       }
       else{
+        console.log(res_data);
         toast.error(res_data.extraDetails || "Message failed!!");
       }
     } catch (error) {
@@ -94,7 +95,7 @@ export const Contact = () => {
               <div>
                 <label htmlFor="email">email</label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="email"
                   name="email"
                   id="email"
