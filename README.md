@@ -27,10 +27,11 @@ The Course App is a full-stack web application built using the MERN (MongoDB, Ex
 
 ## Usage
 
-1.Register an account or log in if you already have one.
-2.Explore the course services available.
-3.Contact the admin for any inquiries or support.
-4.If you're an admin, log in and access the admin panel to manage course data.
+1. Register an account or log in if you already have one.
+2. Explore the course services available.
+3. Contact the admin for any inquiries or support.
+4. If you're an admin, log in and access the admin panel to manage course data.
 
-Contributors
-Chinmay
+## Contributors
+
+- [Chinmay]
