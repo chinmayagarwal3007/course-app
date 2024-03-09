@@ -34,4 +34,4 @@ The Course App is a full-stack web application built using the MERN (MongoDB, Ex
 
 ## Contributors
 
-- [Chinmay]
+- [Chinmay]([https://github.com/chinmayagarwal3007](https://github.com/chinmayagarwal3007))
