@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "../store/auth";
 
-export const AdminContacts = () => {
-    const [contacts, setContacts] = useState([]);
+export const AdminServices = () => {
+    const [services, setServices] = useState([]);
     const {authorizationToken} = useAuth();
 
-    const getAllContacts = async () => {
+    const getAllServices = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/admin/contacts", {
+            const response = await fetch("http://localhost:5000/api/admin/services", {
                 method: "GET",
-                headers:{
-                    Authorization: authorizationToken,
-                },
+                headers: {
+                    Authorization: authorizationToken
+                }
             });
 
             const data = await response.json();
-            setContacts(data);
-            
+            setServices(data);
         } catch (error) {
             console.log(error);
         }
-    };
+    }
+
 
     useEffect(() => {
-      getAllContacts()
-    }, [])
-
+      
+        getAllServices();
     
+    }, [])
+    
+
     return (
         <>
           <section className="admin-users-section">
@@ -37,18 +39,20 @@ export const AdminContacts = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Message</th>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Provider</th>
                     <th>Updatae</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
-                <tbody>{contacts.map((currUser, index) => {
+                <tbody>{services.map((currUser, index) => {
                     return <tr key={index}>
-                        <td>{currUser.username}</td>
-                        <td>{currUser.email}</td>
-                        <td>{currUser.message}</td>
+                        <td>{currUser.service}</td>
+                        <td>{currUser.description}</td>
+                        <td>{currUser.price}</td>
+                        <td>{currUser.provider}</td>
                         <td>edit</td>
                         <td>delete</td>
                     </tr>
@@ -58,5 +62,4 @@ export const AdminContacts = () => {
           </section>
         </>
       );        
-
 }

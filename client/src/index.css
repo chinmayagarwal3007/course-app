@@ -518,3 +518,126 @@ a.active {
 .toastBody {
   font-size: 1.7rem !important;
 }
+
+/* Base styles */
+.admin-users-section {
+  padding: 20px;
+  background-color: black;
+  color: white; /* Text color on black background */
+  font-family: Arial, sans-serif; /* Set font family */
+}
+
+.admin-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-users {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid white; /* Adding border to the table */
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid white; /* Adding border to table cells */
+  font-size: 16px; /* Set font size */
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #333; /* Darker background for even rows */
+}
+
+tr:hover {
+  background-color: #555; /* Darker background on hover */
+}
+
+td button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white; /* Button text color */
+}
+
+td button:hover {
+  color: #ff0000;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .admin-container {
+    padding: 0 10px;
+  }
+  
+  td, th {
+    padding: 10px;
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .admin-container {
+    padding: 0 5px;
+  }
+
+  td, th {
+    padding: 8px;
+    font-size: 12px; /* Further adjust font size for even smaller screens */
+  }
+}
+
+header {
+  background-color: #333; /* Dark background color */
+  padding: 10px 0; /* Add some padding */
+}
+
+.admin-nav-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.admin-nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-nav-links ul li {
+  display: inline-block;
+  margin-right: 20px; /* Add some space between nav items */
+}
+
+.admin-nav-links ul li:last-child {
+  margin-right: 0; /* Remove margin from last item */
+}
+
+.admin-nav-link a {
+  text-decoration: none;
+  color: white; /* Text color */
+  font-weight: bold;
+  font-size: 18px; /* Adjusted font size */
+  font-family: Arial, sans-serif; /* Adjusted font family */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.admin-nav-link a:hover {
+  color: #646cff; /* Change color on hover */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .admin-nav-links ul li {
+    display: block;
+    margin: 10px 0; /* Adjust spacing for smaller screens */
+  }
+}
