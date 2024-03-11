@@ -39,5 +39,50 @@ const getAllServices = async (req, res, next) => {
     }
 }
 
+const deleteUserById = async (req, res, next) => {
+    try {
+        
+        const id = req.params.id;
 
-module.exports = {getAllUsers, getAllContacts, getAllServices};
+        const user = await User.findById(id);
+
+        if (!user) {
+            return res.status(404).json({ msg: 'User not found' });
+        }
+
+        // Check if the user is an admin
+        if (user.isAdmin) {
+            return res.status(403).json({ msg: 'Admin cannot be deleted' });
+        }
+
+        // If the user is not an admin, delete the user
+        await User.deleteOne({ _id: id });
+        res.status(200).json({msg: "User deleted Successfully!!"});
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+const deleteContactById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await Contact.deleteOne({_id:id});
+        res.status(200).json({msg: "Message deleted Successfully!!"})
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+const deleteServiceById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await Service.deleteOne({_id:id});
+        res.status(200).json({msg: "Service deleted Successfully!!"});
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = {getAllUsers, getAllContacts, getAllServices, deleteUserById, deleteContactById, deleteServiceById};

@@ -641,3 +641,19 @@ header {
     margin: 10px 0; /* Adjust spacing for smaller screens */
   }
 }
+
+.admin-buttons {
+  background-color: black;
+  border: 0.1em solid white; /* Use relative border width */
+  color: white;
+  padding: 0.5em 0.8em; /* Adjust padding for 80% width */
+  width: 100%; /* Make button take 100% width */
+  box-sizing: border-box; /* Include padding in the button's total width */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+}
+
+.admin-buttons:hover {
+  background-color: white;
+  color: black;
+}
