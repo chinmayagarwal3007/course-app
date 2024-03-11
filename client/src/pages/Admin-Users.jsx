@@ -23,6 +23,11 @@ export const AdminUsers = () => {
       console.log(error);
     }
   };
+
+  const deleteUser = async (id) => {
+    
+  }
+
   useEffect(() => {
     getAllUsersData();
   }, []);
@@ -51,8 +56,8 @@ export const AdminUsers = () => {
                     <td>{currUser.email}</td>
                     <td>{currUser.phone}</td>
                     <td>{currUser.isAdmin ? 'Yes' : 'No'}</td>
-                    <td>edit</td>
-                    <td>delete</td>
+                    <td><button onClick={() => editUser(currUser._id)}>Edit</button></td>
+                    <td><button onClick={() => deleteUser(currUser._id)}>Delete</button></td>
                 </tr>
             })}</tbody>
           </table>

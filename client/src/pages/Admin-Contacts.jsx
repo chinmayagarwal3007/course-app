@@ -50,7 +50,7 @@ export const AdminContacts = () => {
                         <td>{currUser.email}</td>
                         <td>{currUser.message}</td>
                         <td>edit</td>
-                        <td>delete</td>
+                        <td><button></button></td>
                     </tr>
                 })}</tbody>
               </table>
