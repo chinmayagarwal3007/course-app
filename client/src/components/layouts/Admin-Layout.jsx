@@ -1,6 +1,23 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useAuth } from "../../store/auth";
+
 
 export const AdminLayout = () => {
+
+  const { user, isLoading } = useAuth();
+  const navigate = useNavigate();
+
+  console.log(user);
+
+  if(isLoading){
+    return <h1>Loading.....</h1>
+  }
+
+  if (!user.isAdmin) {
+    navigate("/error");
+    return null;
+  }
+
   return (
     <>
     <header>
