@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom"
 export const Home = () => {
   return (
     <>
@@ -15,12 +15,12 @@ export const Home = () => {
                 tailored to meet your unique needs.
               </p>
               <div className="btn btn-group">
-                <a href="/contact">
+                <Link to="/contact">
                   <button className="btn">connect now</button>
-                </a>
-                <a href="/service">
+                </Link>
+                <Link to="/about">
                   <button className="btn secondary-btn">learn more</button>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -61,12 +61,12 @@ export const Home = () => {
               the digital age.
             </p>
             <div className="btn btn-group">
-              <a href="/contact">
+              <Link to="/contact">
                 <button className="btn">connect now</button>
-              </a>
-              <a href="/service">
+              </Link>
+              <Link to="/service">
                 <button className="btn secondary-btn">learn more</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

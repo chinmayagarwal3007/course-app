@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import {Link} from "react-router-dom"
 
 export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -76,12 +77,7 @@ export const AdminUsers = () => {
                     <td>{currUser.phone}</td>
                     <td>{currUser.isAdmin ? "Yes" : "No"}</td>
                     <td >
-                      <button
-                        className="admin-buttons"
-                        onClick={() => editUser(currUser._id)}
-                      >
-                        Edit
-                      </button>
+                      <Link className="admin-buttons" to={`/admin/users/${currUser._id}/edit`}>Edit</Link>
                     </td>
                     <td>
                       <button

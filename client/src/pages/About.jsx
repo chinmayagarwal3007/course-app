@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import {Link} from "react-router-dom"
 
 export const About = () => {
   return (
@@ -34,12 +34,12 @@ export const About = () => {
                 available 24/7.
               </p>
               <div className="btn btn-group">
-                <NavLink to="/contact">
+                <Link to="/contact">
                   <button className="btn"> Connect Now</button>
-                </NavLink>
-                <NavLink to="/service">
+                </Link>
+                <Link to="/service">
                 <button className="btn secondary-btn">learn more</button>
-                </NavLink>
+                </Link>
               </div>
             </div>
             <div className="hero-image">
